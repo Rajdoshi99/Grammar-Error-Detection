@@ -7,6 +7,12 @@ from config import VOCAB_SIZE, MAX_WORDS
 
 
 def preprocess_data():
+    """
+    Functionality to preprocess the data (Tokenization, Padding)
+    Not much preprocessing is required since we want to maintain the words as is.
+
+    :return: the training and testing datasets.
+    """
     df = read_data()
     df = convert_data(df)
 
