@@ -17,14 +17,14 @@ def convert_data(df):
         "Text": [],
         "Target": []
     })
-    df_correct['Text'] = df[0]
+    df_correct['Text'] = df[1]
     df_correct['Target'] = 0
 
     df_incorrect = pd.DataFrame({
         "Text": [],
         "Target": []
     })
-    df_incorrect['Text'] = df[1]
+    df_incorrect['Text'] = df[0]
     df_incorrect['Target'] = 1
 
     df_new = pd.concat([df_correct, df_incorrect])
