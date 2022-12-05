@@ -31,13 +31,13 @@ def convert_data(df):
     return df_new
 
 
-def read_data():
+def read_data(file=TRAINING_FILE_PATH):
     """
     Functionality to return the data from the file.
 
     :return: the dataset of incorrect and their corresponding correct sentences.
     """
-    df = pd.read_csv(TRAINING_FILE_PATH,
+    df = pd.read_csv(file,
                      delimiter=".\t",
                      header=None,
                      engine='python')

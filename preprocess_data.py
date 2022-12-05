@@ -3,7 +3,7 @@ from sklearn.model_selection import train_test_split
 from data import read_data, convert_data
 from keras.preprocessing.text import Tokenizer
 from keras.utils import pad_sequences
-from config import VOCAB_SIZE, MAX_WORDS
+from config import VOCAB_SIZE, MAX_WORDS, TESTING_FILE_PATH
 
 
 def preprocess_data():
@@ -13,23 +13,24 @@ def preprocess_data():
 
     :return: the training and testing datasets.
     """
-    df = read_data()
-    df = convert_data(df)
+    train_df = read_data()
+    train_df = convert_data(train_df)
+
+    test_df = read_data(file=TESTING_FILE_PATH)
+    test_df = convert_data(test_df)
 
     # drop null values
-    df = df.dropna()
+    train_df = train_df.dropna()
+    test_df = test_df.dropna()
 
     max_words = MAX_WORDS
-    df = df[df["Text"].apply(len) < max_words]
-
-    # split data into training and testing files
-    train_df, test_df = train_test_split(df, test_size=0.2, shuffle=True)
+    train_df = train_df[train_df["Text"].apply(len) < max_words]
 
     # tokenize the data
     tokenizer = Tokenizer(num_words=VOCAB_SIZE)
-    tokenizer.fit_on_texts(df['Text'])
+    tokenizer.fit_on_texts(train_df['Text'])
 
-    max_len = df['Text'].apply(len).max()
+    max_len = train_df['Text'].apply(len).max()
 
     # pad the train and test sequences after fitting on tokenizer
     train_df['Text'] = tokenizer.texts_to_sequences(train_df['Text'])
@@ -45,3 +46,5 @@ def preprocess_data():
     y_test = test_df['Target']
 
     return X_train, y_train, X_test, y_test
+
+
