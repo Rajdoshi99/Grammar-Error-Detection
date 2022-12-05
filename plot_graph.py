@@ -1,9 +1,35 @@
 import matplotlib.pyplot as plt
 
 
-def plot_graph(X, y, x_label=None, y_label=None, title=None):
-    plt.plot(X, y)
-    plt.xlabel(x_label)
-    plt.ylabel(y_label)
-    plt.title(title)
-    plt.show()
+def plot_graph(history):
+    for metric in history.history:
+        if 'val_' in metric:
+            continue
+        try:
+            # Get the training scores for the metric
+            train_scores = history.history[metric]
+
+            # Get the validation scores for the metric
+            val_metric = 'val_' + metric
+            val_scores = history.history[val_metric]
+
+            # Get the number of epochs
+            epochs = range(1, len(train_scores) + 1)
+
+            # Plot the metrics
+            plt.plot(train_scores, epochs, label=metric)
+            plt.plot(val_scores, epochs, label=val_metric)
+
+            # Give labels to the X and Y axis
+            plt.xlabel('Epochs')
+            plt.ylabel(metric)
+
+            # Plot the legend
+            plt.legend()
+
+            # Give a title to the plot
+            plt.title(f"{metric} vs epochs")
+
+            plt.show()
+        except Exception:
+            continue
