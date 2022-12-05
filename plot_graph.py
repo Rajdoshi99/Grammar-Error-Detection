@@ -17,8 +17,8 @@ def plot_graph(history):
             epochs = range(1, len(train_scores) + 1)
 
             # Plot the metrics
-            plt.plot(train_scores, epochs, label=metric)
-            plt.plot(val_scores, epochs, label=val_metric)
+            plt.plot(epochs, train_scores, label=metric)
+            plt.plot(epochs, val_scores, label=val_metric)
 
             # Give labels to the X and Y axis
             plt.xlabel('Epochs')
@@ -31,5 +31,6 @@ def plot_graph(history):
             plt.title(f"{metric} vs epochs")
 
             plt.show()
+
         except Exception:
             continue
