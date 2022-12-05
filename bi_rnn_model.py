@@ -1,9 +1,9 @@
 from keras.models import Sequential
-from keras.layers import Embedding, Dense, LSTM
+from keras.layers import Embedding, Dense, RNN, Bidirectional
 from config import VOCAB_SIZE
 
 
-def build_lstm_model(max_len, embedding_len=128, lstm_units=64):
+def build_bi_rnn_model(max_len, embedding_len=128, rnn_units=64):
     """
     Functionality to build a simple lstm model with 64 lstm units.
 
@@ -17,6 +17,6 @@ def build_lstm_model(max_len, embedding_len=128, lstm_units=64):
     model.add(Embedding(input_dim=VOCAB_SIZE,
                         output_dim=embedding_len,
                         input_length=max_len))
-    model.add(LSTM(lstm_units))
+    model.add(Bidirectional(RNN(rnn_units)))
     model.add(Dense(1, activation='sigmoid'))
     return model
