@@ -1,5 +1,3 @@
-import pandas as pd
-from sklearn.model_selection import train_test_split
 from data import read_data, convert_data
 from keras.preprocessing.text import Tokenizer
 from keras.utils import pad_sequences

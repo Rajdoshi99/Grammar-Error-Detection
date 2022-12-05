@@ -1,4 +1,3 @@
-import pandas
 import pandas as pd
 from config import TRAINING_FILE_PATH
 
@@ -12,7 +11,7 @@ def convert_data(df):
     :param df: dataframe on incorrect and their correct sentences
     :return: the combined dataset with their target variables
     """
-
+    # Storing the correct text
     df_correct = pd.DataFrame({
         "Text": [],
         "Target": []
@@ -20,6 +19,7 @@ def convert_data(df):
     df_correct['Text'] = df[1]
     df_correct['Target'] = 0
 
+    # Storing the incorrect text
     df_incorrect = pd.DataFrame({
         "Text": [],
         "Target": []
@@ -27,6 +27,7 @@ def convert_data(df):
     df_incorrect['Text'] = df[0]
     df_incorrect['Target'] = 1
 
+    # Creating a single dataframe of correct and incorrect sentences.
     df_new = pd.concat([df_correct, df_incorrect])
     return df_new
 

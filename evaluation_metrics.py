@@ -127,18 +127,19 @@ def rand_index_loss(y_true, y_pred):
     :param y_pred: predicted labels
     :return: the rand index loss of the predictions.
     """
-    y_true = K.argmax(y_true, axis=-1)
-    y_pred = K.argmax(y_pred, axis=-1)
-    n = K.shape(y_true)[0]
-    a = K.sum(K.cast(K.equal(y_true, y_true), K.floatx()))
-    b = K.sum(K.cast(K.not_equal(y_true, y_pred), K.floatx()))
-    c = K.sum(K.cast(K.equal(y_pred, y_pred), K.floatx()))
-    return 1 - (a + c) / (n * n - b)
+    # First, get the sets of elements in each group
+    true_groups = tf.dynamic_partition(y_true, y_true, 2)
+    pred_groups = tf.dynamic_partition(y_pred, y_pred, 2)
+
+    # Then, calculate the Rand index
+    rand_index = tf.math.confusion_matrix(true_groups, pred_groups, 2)[1, 1] / tf.size(y_true)
+
+    # Return the Rand index as the loss
+    return rand_index
 
 
 def f05_score(y_true, y_pred):
     """
-    TODO: check the working
     Functionality to calculate the F_0.5 score of the model. The F0.5 score is a metric used to evaluate the
     performance of a machine learning model on a classification task. It is a variant of the F1 score, which is a
     weighted average of precision and recall. The F0.5 score gives more weight to precision than the F1 score, and is
@@ -148,9 +149,24 @@ def f05_score(y_true, y_pred):
     :param y_pred: predicted labels
     :return: the F_0.5 score of the predictions
     """
-    # First, calculate the precision and recall values
-    precision = tf.metrics.Precision(y_true, y_pred)
-    recall = tf.metrics.Recall(y_true, y_pred)
+    # Flatten the true and predicted labels
+    y_true_flat = K.flatten(y_true)
+    y_pred_flat = K.flatten(y_pred)
+
+    # Count the number of true positives
+    true_positives = K.sum(K.round(K.clip(y_true_flat * y_pred_flat, 0, 1)))
+
+    # Count the number of false positives
+    false_positives = K.sum(K.round(K.clip((1 - y_true_flat) * y_pred_flat, 0, 1)))
+
+    # Count the number of false negatives
+    false_negatives = K.sum(K.round(K.clip(y_true_flat * (1 - y_pred_flat), 0, 1)))
+
+    # Compute the precision
+    precision = true_positives / (true_positives + false_positives + K.epsilon())
+
+    # Compute the recall
+    recall = true_positives / (true_positives + false_negatives + K.epsilon())
 
     # Then, calculate the F0.5 score
     f05 = 1.25 * precision * recall / (0.25 * precision + recall)
