@@ -9,7 +9,7 @@ def build_bi_rnn_model(max_len, embedding_len=128, rnn_units=64):
 
     :param max_len: maximum input length of the sequences
     :param embedding_len: the dimension of the output of the embedding layer
-    :param lstm_units: the number of rnn units required
+    :param rnn_units: the number of rnn units required
     :return: the rnn model
     """
 
