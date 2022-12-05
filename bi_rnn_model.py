@@ -5,12 +5,12 @@ from config import VOCAB_SIZE
 
 def build_bi_rnn_model(max_len, embedding_len=128, rnn_units=64):
     """
-    Functionality to build a simple lstm model with 64 lstm units.
+    Functionality to build a simple bidirectional rnn model with 64 rnn units.
 
     :param max_len: maximum input length of the sequences
     :param embedding_len: the dimension of the output of the embedding layer
-    :param lstm_units: the number of lstm units required
-    :return: the lstm model
+    :param lstm_units: the number of rnn units required
+    :return: the rnn model
     """
 
     model = Sequential()
