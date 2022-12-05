@@ -116,6 +116,7 @@ def v_measure(y_true, y_pred):
 
 def rand_index_loss(y_true, y_pred):
     """
+    TODO: check the working
     Functionality to calculate the rand index less of the model. The Rand index is a metric that can be used to
     evaluate the performance of a clustering algorithm. It measures the percentage of pairs of data points that are
     either both assigned to the same cluster or both assigned to different clusters by the algorithm and the ground
@@ -137,6 +138,7 @@ def rand_index_loss(y_true, y_pred):
 
 def f05_score(y_true, y_pred):
     """
+    TODO: check the working
     Functionality to calculate the F_0.5 score of the model. The F0.5 score is a metric used to evaluate the
     performance of a machine learning model on a classification task. It is a variant of the F1 score, which is a
     weighted average of precision and recall. The F0.5 score gives more weight to precision than the F1 score, and is
