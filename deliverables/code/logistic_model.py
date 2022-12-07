@@ -13,7 +13,7 @@ def build_logistic_model(max_len=MAX_LEN, embedding_len=128):
     :return: the logistic model
     """
 
-    model = Sequential(name='bi_lstm_model')
+    model = Sequential(name='logistic_model')
     model.add(Embedding(input_dim=VOCAB_SIZE,
                         output_dim=embedding_len,
                         input_length=max_len))
