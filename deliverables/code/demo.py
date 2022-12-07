@@ -9,6 +9,6 @@ def run_demo(models, test_sentences):
     :return: None, prints the predictions of each model on the given test sentences
     """
     for sentence in test_sentences:
-        print('Printing prediction for sentence: ', sentence)
+        print('\n\nPrediction for sentence: ', sentence)
         for model in models:
-            print(model.name, predict([sentence], model))
+            print(model.name, ' -> ', predict(test_sentences=[sentence], model=model))

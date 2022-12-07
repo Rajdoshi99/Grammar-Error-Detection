@@ -4,11 +4,12 @@ from plot_graph import plot_graph
 from config import SAVE_PATH
 
 
-def test_model(evaluation_metrics=None, model=None, train_tokenizer=False):
+def train_model(evaluation_metrics=None, model=None, train_tokenizer=False):
     """
     Simple test script
     :param evaluation_metrics: the evaluation metrics for the model
     :param model: the model to be evaluated
+    :param train_tokenizer: flag to determine whether or not to train the tokenizer
     :return: the history of the model training
     """
     # Get the training and testing data

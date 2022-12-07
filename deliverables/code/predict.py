@@ -29,6 +29,6 @@ def predict(test_sentences, model=None):
     model.load_weights(SAVE_PATH + model.name)
 
     # Predict the model output for the test sentence
-    predictions = model.predict(test_sentences_padded).round()
+    predictions = model.predict(test_sentences_padded, verbose=0).round().squeeze()
 
     return predictions
