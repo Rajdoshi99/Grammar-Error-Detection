@@ -1,5 +1,5 @@
 from keras.models import Sequential
-from keras.layers import Embedding, Dense, LSTM, Dropout
+from keras.layers import Embedding, Dense, LSTM
 
 from config import VOCAB_SIZE, MAX_LEN
 
@@ -19,7 +19,7 @@ def build_lstm_model(max_len=MAX_LEN, embedding_len=128, lstm_units=[64, 128, 12
                         output_dim=embedding_len,
                         input_length=max_len))
     for units in lstm_units[:-1]:
-        model.add(LSTM(units, return_sequences=True))
+        model.add(LSTM(units, return_sequences=True, dropout=0.15))
     model.add(LSTM(lstm_units[-1]))
     model.add(Dense(1, activation='sigmoid'))
 
