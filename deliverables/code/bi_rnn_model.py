@@ -18,7 +18,7 @@ def build_bi_rnn_model(max_len=MAX_LEN, embedding_len=128, rnn_units=[4, 40, 40]
                         output_dim=embedding_len,
                         input_length=max_len))
     for units in rnn_units[:-1]:
-        model.add(Bidirectional(RNN(units, return_sequences=True, activation='tanh', dropout=0.15)))
-    model.add(Bidirectional(RNN(rnn_units[-1], activation='tanh')))
+        model.add(RNN(units, return_sequences=True, activation='tanh', dropout=0.15, go_backwards=True))
+    model.add(RNN(rnn_units[-1], activation='tanh', go_backwards=True))
     model.add(Dense(1, activation='sigmoid'))
     return model
