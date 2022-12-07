@@ -1,0 +1,27 @@
+Bi directional lstm 64, 128, 128
+
+Epoch 1/10
+969/969 [==============================] - 673s 682ms/step - loss: 0.5443 - f1_score: 0.5547 - completeness: 0.5429 - homogeneity: 0.2179 - v_measure: 0.3095 - f05_score: nan - accuracy: 0.7347 - val_loss: 0.7405 - val_f1_score: 0.6298 - val_completeness: 0.5596 - val_homogeneity: 0.5596 - val_v_measure: 0.5596 - val_f05_score: 0.8078 - val_accuracy: 0.4629
+Epoch 2/10
+969/969 [==============================] - 653s 674ms/step - loss: 0.4679 - f1_score: 0.6584 - completeness: 0.6149 - homogeneity: 0.2470 - v_measure: 0.3508 - f05_score: 0.7622 - accuracy: 0.7802 - val_loss: 0.7166 - val_f1_score: 0.7399 - val_completeness: 0.6131 - val_homogeneity: 0.6131 - val_v_measure: 0.6131 - val_f05_score: 0.8758 - val_accuracy: 0.5895
+Epoch 3/10
+969/969 [==============================] - 651s 672ms/step - loss: 0.4004 - f1_score: 0.7380 - completeness: 0.6788 - homogeneity: 0.2723 - v_measure: 0.3866 - f05_score: 0.7952 - accuracy: 0.8146 - val_loss: 0.5901 - val_f1_score: 0.7865 - val_completeness: 0.6558 - val_homogeneity: 0.6558 - val_v_measure: 0.6558 - val_f05_score: 0.9013 - val_accuracy: 0.6500
+Epoch 4/10
+969/969 [==============================] - 654s 675ms/step - loss: 0.3460 - f1_score: 0.7885 - completeness: 0.7270 - homogeneity: 0.2916 - v_measure: 0.4142 - f05_score: 0.8271 - accuracy: 0.8443 - val_loss: 0.6259 - val_f1_score: 0.8163 - val_completeness: 0.6899 - val_homogeneity: 0.6899 - val_v_measure: 0.6899 - val_f05_score: 0.9169 - val_accuracy: 0.6917
+Epoch 5/10
+969/969 [==============================] - 656s 677ms/step - loss: 0.3016 - f1_score: 0.8233 - completeness: 0.7652 - homogeneity: 0.3069 - v_measure: 0.4360 - f05_score: 0.8473 - accuracy: 0.8666 - val_loss: 0.7693 - val_f1_score: 0.8059 - val_completeness: 0.6649 - val_homogeneity: 0.6649 - val_v_measure: 0.6649 - val_f05_score: 0.9116 - val_accuracy: 0.6770
+Epoch 6/10
+969/969 [==============================] - 654s 675ms/step - loss: 0.2655 - f1_score: 0.8512 - completeness: 0.7956 - homogeneity: 0.3192 - v_measure: 0.4535 - f05_score: 0.8658 - accuracy: 0.8857 - val_loss: 0.7036 - val_f1_score: 0.8303 - val_completeness: 0.6887 - val_homogeneity: 0.6887 - val_v_measure: 0.6887 - val_f05_score: 0.9240 - val_accuracy: 0.7115
+Epoch 7/10
+969/969 [==============================] - 655s 676ms/step - loss: 0.2330 - f1_score: 0.8715 - completeness: 0.8224 - homogeneity: 0.3302 - v_measure: 0.4689 - f05_score: 0.8821 - accuracy: 0.9007 - val_loss: 0.7623 - val_f1_score: 0.8408 - val_completeness: 0.7027 - val_homogeneity: 0.7027 - val_v_measure: 0.7027 - val_f05_score: 0.9292 - val_accuracy: 0.7270
+Epoch 8/10
+969/969 [==============================] - 662s 683ms/step - loss: 0.2040 - f1_score: 0.8895 - completeness: 0.8465 - homogeneity: 0.3396 - v_measure: 0.4822 - f05_score: 0.8958 - accuracy: 0.9137 - val_loss: 0.9025 - val_f1_score: 0.8256 - val_completeness: 0.6945 - val_homogeneity: 0.6945 - val_v_measure: 0.6945 - val_f05_score: 0.9216 - val_accuracy: 0.7048
+Epoch 9/10
+969/969 [==============================] - 657s 678ms/step - loss: 0.1824 - f1_score: 0.9027 - completeness: 0.8634 - homogeneity: 0.3464 - v_measure: 0.4921 - f05_score: 0.9098 - accuracy: 0.9243 - val_loss: 1.0105 - val_f1_score: 0.8194 - val_completeness: 0.6918 - val_homogeneity: 0.6918 - val_v_measure: 0.6918 - val_f05_score: 0.9185 - val_accuracy: 0.6955
+Epoch 10/10
+969/969 [==============================] - 664s 685ms/step - loss: 0.1616 - f1_score: 0.9136 - completeness: 0.8793 - homogeneity: 0.3530 - v_measure: 0.5013 - f05_score: 0.9205 - accuracy: 0.9327 - val_loss: 0.9788 - val_f1_score: 0.8544 - val_completeness: 0.7218 - val_homogeneity: 0.7218 - val_v_measure: 0.7218 - val_f05_score: 0.9358 - val_accuracy: 0.7479
+2394/2394 [==============================] - 309s 129ms/step - loss: 1.0212 - f1_score: 0.3963 - completeness: 0.3194 - homogeneity: 0.3193 - v_measure: 0.3193 - f05_score: nan - accuracy: 0.6826
+
+
+lstm
+rnn
