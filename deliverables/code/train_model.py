@@ -30,7 +30,7 @@ def train_model(evaluation_metrics=None, model=None, train_tokenizer=False):
     # Store the history of the training data
     history = model.fit(X_train, y_train,
                         batch_size=64,
-                        epochs=1,
+                        epochs=10,
                         validation_split=0.2)
 
     # Plot the training and validation metrics
