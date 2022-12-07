@@ -3,7 +3,7 @@ from keras.layers import Embedding, Dense, RNN, Bidirectional
 from config import VOCAB_SIZE
 
 
-def build_bi_rnn_model(max_len, embedding_len=128, rnn_units=64):
+def build_bi_rnn_model(max_len, embedding_len=128, rnn_units=[64, 128, 128]):
     """
     Functionality to build a simple bidirectional rnn model with 64 rnn units.
 
@@ -17,6 +17,8 @@ def build_bi_rnn_model(max_len, embedding_len=128, rnn_units=64):
     model.add(Embedding(input_dim=VOCAB_SIZE,
                         output_dim=embedding_len,
                         input_length=max_len))
-    model.add(Bidirectional(RNN(rnn_units)))
+    for units in rnn_units[:-1]:
+        model.add(Bidirectional(RNN(units, return_sequences=True)))
+    model.add(Bidirectional(RNN(rnn_units[-1])))
     model.add(Dense(1, activation='sigmoid'))
     return model

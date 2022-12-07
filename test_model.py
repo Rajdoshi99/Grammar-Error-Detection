@@ -27,7 +27,7 @@ def test_model(evaluation_metrics=None, model=None):
     # Store the history of the training data
     history = model.fit(X_train, y_train,
                         batch_size=64,
-                        epochs=3,
+                        epochs=10,
                         validation_split=0.2)
 
     # Plot the training and validation metrics
