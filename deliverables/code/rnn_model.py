@@ -1,5 +1,5 @@
 from keras.models import Sequential
-from keras.layers import Embedding, Dense, RNN
+from keras.layers import Embedding, Dense, SimpleRNN
 from config import VOCAB_SIZE, MAX_LEN
 
 
@@ -18,7 +18,7 @@ def build_rnn_model(max_len=MAX_LEN, embedding_len=128, rnn_units=[4, 40, 40]):
                         output_dim=embedding_len,
                         input_length=max_len))
     for units in rnn_units[:-1]:
-        model.add(RNN(units, return_sequences=True, activation='tanh', dropout=0.15))
-    model.add(RNN(rnn_units[-1], activation='tanh'))
+        model.add(SimpleRNN(units, return_sequences=True, activation='tanh', dropout=0.15))
+    model.add(SimpleRNN(rnn_units[-1], activation='tanh'))
     model.add(Dense(1, activation='sigmoid'))
     return model

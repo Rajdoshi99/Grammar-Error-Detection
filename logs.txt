@@ -118,7 +118,7 @@ Epoch 10/10
 969/969 [==============================] - 76s 78ms/step - loss: 0.6740 - f1_score: 0.0000e+00 - completeness: 0.4012 - homogeneity: 0.1610 - v_measure: 0.2286 - f05_score: nan - accuracy: 0.5986 - val_loss: 0.9254 - val_f1_score: 0.0000e+00 - val_completeness: 0.3964 - val_homogeneity: 0.3964 - val_v_measure: 0.3964 - val_f05_score: nan - val_accuracy: 0.0000e+00
 2394/2394 [==============================] - 27s 11ms/step - loss: 0.7154 - f1_score: 0.0063 - completeness: 0.1990 - homogeneity: 0.1989 - v_measure: 0.1989 - f05_score: nan - accuracy: 0.4995
 
-
+bi rnn
 Epoch 1/10
 969/969 [==============================] - 195s 190ms/step - loss: 0.5535 - f1_score: 0.5293 - completeness: 0.5329 - homogeneity: 0.2140 - v_measure: 0.3039 - f05_score: nan - accuracy: 0.7261 - val_loss: 0.6891 - val_f1_score: 0.6127 - val_completeness: 0.5709 - val_homogeneity: 0.5709 - val_v_measure: 0.5709 - val_f05_score: 0.7964 - val_accuracy: 0.4445
 Epoch 2/10
