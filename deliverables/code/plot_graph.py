@@ -32,5 +32,7 @@ def plot_graph(history):
 
             plt.show()
 
+            print()
+
         except Exception:
             continue
