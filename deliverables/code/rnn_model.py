@@ -3,7 +3,7 @@ from keras.layers import Embedding, Dense, SimpleRNN
 from config import VOCAB_SIZE, MAX_LEN
 
 
-def build_rnn_model(max_len=MAX_LEN, embedding_len=128, rnn_units=[4, 40, 40]):
+def build_rnn_model(max_len=MAX_LEN, embedding_len=128, rnn_units=[4,40,40]):
     """
     Functionality to build a simple bidirectional rnn model with 64 rnn units.
 
